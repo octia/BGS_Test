@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773415831968277679, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
       propertyPath: m_Name
-      value: Shopkeep2 Variant
+      value: Shopkeep2
+      objectReference: {fileID: 0}
+    - target: {fileID: 893765574004064402, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7646418
+      objectReference: {fileID: 0}
+    - target: {fileID: 893765574004064402, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.74737835
       objectReference: {fileID: 0}
     - target: {fileID: 1505314583951507062, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
       propertyPath: m_LocalScale.x

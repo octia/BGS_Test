@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shopkeep1
       objectReference: {fileID: 0}
+    - target: {fileID: 893765574004064402, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0774913
+      objectReference: {fileID: 0}
+    - target: {fileID: 893765574004064402, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.55956244
+      objectReference: {fileID: 0}
     - target: {fileID: 1505314583951507062, guid: 9006cbe1f569ad5b69648537f8f28d28, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
