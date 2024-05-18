@@ -7,6 +7,7 @@ namespace BGSTest
 {
     public class Player : Character
     {
-        
+        [SerializeField]
+        protected Inventory _inventory;
     }
 }

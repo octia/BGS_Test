@@ -20,6 +20,7 @@ namespace BGSTest
 
         public void Interact()
         {
+            UIShoppingSystem shopSystem = UISystemManager.Instance.OpenUISystem<UIShoppingSystem>();
             
         }
     }
