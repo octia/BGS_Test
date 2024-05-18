@@ -30,7 +30,7 @@ namespace BGSTest
 
         private void AttemptInteraction()
         {
-
+            
         }
 
         private bool CheckInteractionAvaliability()
@@ -38,13 +38,23 @@ namespace BGSTest
             return false;
         }
 
+        private void OnDrawGizmos()
+        {
+            if (Application.isPlaying)
+            {
+                Gizmos.color = Color.red;
+                Debug.Log("heading: " + _currentHeading);
+                Gizmos.DrawRay(characterController.transform.position, _currentHeading);
+            }
+        }
+
         private bool TryGetInteractable(out IInteractable interactable)
         {
-            bool anythingHit = Physics.Raycast(characterController.transform.position, _currentHeading, out RaycastHit hit, _maxInteractionDistance, _interactionLayer);
-            interactable = null;
-            if (anythingHit)
+            Vector2 startPos = (Vector2)characterController.transform.position;
+            RaycastHit2D hit = Physics2D.Raycast(startPos, _currentHeading, _maxInteractionDistance, _interactionLayer);
+            
+            if (hit)
             {
-                Debug.Log("Something was hit!");
                 bool foundInteractable = hit.transform.TryGetComponent<IInteractable>(out interactable);
                 if (foundInteractable)
                 {
@@ -56,15 +66,26 @@ namespace BGSTest
                     return false;
                 }
             }
+            interactable = null;
             return false;
+        }
+
+        private void Update()
+        {
+            if (_interactionPossible)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    AttemptInteraction();
+                }
+            }
         }
 
         private void FixedUpdate()
         {
             bool interactableFound = TryGetInteractable(out _);
-            if (interactableFound)
+            if (interactableFound != _interactionPossible)
             {
-                Debug.Log("Interactable found!");
 
             }
         }
