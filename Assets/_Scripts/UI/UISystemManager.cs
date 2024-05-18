@@ -11,7 +11,7 @@ namespace BGSTest
     public class UISystemManager : MonoBehaviour
     {
         #region Singleton
-        public UISystemManager Instance;
+        public static UISystemManager Instance;
         private void Awake()
         {
             if (Instance == null)
