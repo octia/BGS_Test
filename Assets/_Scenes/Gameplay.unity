@@ -403,6 +403,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 938201797}
     m_Modifications:
+    - target: {fileID: 430593964343643443, guid: 8c8872be90cfd9676be146e0133300fc, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 773415831968277679, guid: 8c8872be90cfd9676be146e0133300fc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -410,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 2598164480767537876, guid: 8c8872be90cfd9676be146e0133300fc, type: 3}
       propertyPath: _inventory.Slots.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277005246531415539, guid: 8c8872be90cfd9676be146e0133300fc, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3542991382696545175, guid: 8c8872be90cfd9676be146e0133300fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1775,6 +1783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsExclusive>k__BackingField: 0
+  _goldText: {fileID: 0}
 --- !u!1 &600710033
 GameObject:
   m_ObjectHideFlags: 0

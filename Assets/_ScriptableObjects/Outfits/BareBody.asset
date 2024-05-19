@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ccadee575ff595b87ed20a6bdcbad4, type: 3}
+  m_Name: BareBody
+  m_EditorClassIdentifier: 
+  outfitName: Body
+  _walkAnimFrames: 6
+  _indexIdleFrame: 6
+  _spritesWalkDown:
+  - {fileID: -2024633360, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -1473589553, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -410252444, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -628799699, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -1677409935, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -689129214, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1540958452, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  _spritesWalkUp:
+  - {fileID: -828957224, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -1708215973, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1306167829, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -1322146086, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1525103539, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -2138491972, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -912585526, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  _spritesWalkRight:
+  - {fileID: -481245421, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -184734175, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -71925528, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1897568709, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -575883439, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -461950182, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 2139415504, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  _spritesWalkLeft:
+  - {fileID: -700972789, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: -1253708823, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 574112312, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1591721159, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1771356481, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 1752305497, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}
+  - {fileID: 650708244, guid: 43b62eec42e9d3247b0f5e22e692759f, type: 3}

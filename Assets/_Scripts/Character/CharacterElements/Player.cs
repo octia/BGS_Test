@@ -12,10 +12,8 @@ namespace BGSTest
     {
         public Inventory PlayerInventory = new();
 
-        public OutfitSO outfitSlot;
-        public OutfitSO hairSlot;
-        public OutfitSO hatSlot;
-
+        public OutfitSO bodyOutfit;
+        public OutfitSO headOutfit;
 
     }
 }
