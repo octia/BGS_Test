@@ -26,6 +26,21 @@ namespace BGSTest
         }
         #endregion
 
+        public bool IsAnyUIOpen
+        {
+            get
+            {
+                foreach (var system in _uiSystems.Values)
+                {
+                    if (system.IsOpen)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         /// <summary>
         /// Fired when gameplay is paused (true) or resumed (false)
         /// </summary>
@@ -101,7 +116,7 @@ namespace BGSTest
                 result.OnOpenClose += toRegister;
             }
         }
-        
+
         public void UnregisterForUIEvent<T>(Action<UISystemBase, bool> toDeregister) where T : UISystemBase
         {
             if (_uiSystems.TryGetValue(typeof(T), out var result))
