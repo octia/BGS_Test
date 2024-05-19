@@ -24,7 +24,7 @@ namespace BGSTest
             _shoppingSystem = shoppingSystem;
             _itemSO = itemSO;
             _name.text = itemSO.name;
-            _price.text = itemSO.SellPrice.ToString();
+            _price.text = itemSO.BuyPrice.ToString();
             _icon.sprite = itemSO.icon;
         }
 

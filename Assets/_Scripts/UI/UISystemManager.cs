@@ -86,6 +86,14 @@ namespace BGSTest
             }
         }
 
+        public void CloseAllUISystems()
+        {
+            foreach (var system in _uiSystems.Values)
+            {
+                system.Close();
+            }
+        }
+
         public void RegisterForUIEvent<T>(Action<UISystemBase, bool> toRegister) where T : UISystemBase
         {
             if (_uiSystems.TryGetValue(typeof(T), out var result))

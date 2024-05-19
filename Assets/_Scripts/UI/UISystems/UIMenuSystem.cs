@@ -6,7 +6,7 @@ namespace BGSTest
 {
     public class UIMenuSystem : UISystemBase
     {
-
+        // I wanted to make a main menu, but ran out of time
     }
 
 }

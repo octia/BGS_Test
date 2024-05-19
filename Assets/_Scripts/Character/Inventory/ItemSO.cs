@@ -16,7 +16,7 @@ namespace BGSTest
         public Sprite icon;
         public int BuyPrice = 10;
         public int SellPrice = 5;
-
+        public OutfitSO OutfitSO;        
 
     }
 }

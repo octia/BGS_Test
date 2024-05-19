@@ -391,7 +391,7 @@ MonoBehaviour:
   PlayerInventory:
     InventorySize: 10
     Slots: []
-    goldAmount: 0
+    _goldAmount: 100
   bodyOutfit: {fileID: 0}
   headOutfit: {fileID: 0}
 --- !u!114 &545015741856038310

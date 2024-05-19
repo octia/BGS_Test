@@ -18,11 +18,13 @@ namespace BGSTest
             if (wasOpened)
             {
                 shopSystem.OnTryBuyItem += OnTryBuyItem;
+                shopSystem.OnSellItem += OnSellItem;
                 playerController.SetCanMove(false);
             }
             else
             {
                 shopSystem.OnTryBuyItem -= OnTryBuyItem;
+                shopSystem.OnSellItem -= OnSellItem;
                 playerController.SetCanMove(true);
             }
         }
@@ -32,7 +34,7 @@ namespace BGSTest
             Inventory inv = playerController.PlayerInventory;
             if (inv.IsAddingItemPossible(item))
             {            
-                if (inv.goldAmount > price)
+                if (inv.goldAmount >= price)
                 {
                     inv.goldAmount -= price;
                     inv.AddItem(item);
@@ -41,6 +43,16 @@ namespace BGSTest
             }
 
             return false;
+        }
+
+        private void OnSellItem(InventorySlot item, int price)
+        {
+            Inventory inv = playerController.PlayerInventory;
+            if (inv.RemoveItem(item.slotID, 1))
+            {
+                inv.goldAmount += price;
+            }
+
         }
 
         private void OnDestroy()

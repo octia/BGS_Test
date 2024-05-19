@@ -18,9 +18,14 @@ namespace BGSTest
                 UIShoppingSystem shopSystem = UISystemManager.Instance?.OpenUISystem<UIShoppingSystem>();
                 if (shopSystem)
                 {
-                    shopSystem.SetupItems(_shopkeepSO);
+                    shopSystem.SetupItems(this);
                 }
             }
+        }
+
+        public ShopkeepSO GetShopkeepSO()
+        {
+            return _shopkeepSO;
         }
     }
 }
