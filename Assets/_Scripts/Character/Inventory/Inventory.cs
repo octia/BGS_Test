@@ -8,12 +8,30 @@ namespace BGSTest
     [Serializable]
     public class Inventory
     {
-        public Action OnInventoryChanged = delegate { };
-        public int InventorySize = 10;
+        public Action<InventorySlot> OnInventoryChanged = delegate { };
+        public int InventorySize
+        {
+            get
+            {
+                return _inventorySize;
+            }
+            private set
+            {
+                if (_inventorySize >= 0)
+                {
+                    _inventorySize = value;
+                }
+                else
+                {
+                    _inventorySize = 0;
+                }
+            }
+        }
+        private int _inventorySize = 0;
         public List<InventorySlot> Slots;
 
-        public InventorySlot HeadOutfitSlot = new InventorySlot(-1, true);
-        public InventorySlot BodyOutfitSlot = new InventorySlot(-2, true);
+        public ExclusiveInventorySlot HeadOutfitSlot = new(-1, OutfitTypes.HeadOutfit);
+        public ExclusiveInventorySlot BodyOutfitSlot = new(-2, OutfitTypes.BodyOutfit);
 
         public int goldAmount
         {
@@ -24,17 +42,18 @@ namespace BGSTest
             set
             {
                 _goldAmount = value;
-                OnInventoryChanged.Invoke();
+                OnInventoryChanged.Invoke(null);
             }
         }
 
         [SerializeField]
         private int _goldAmount = 0;
 
-        public void Initialize()
+        public void Initialize(int inventorySize)
         {
+            InventorySize = inventorySize;
             Slots = new List<InventorySlot>();
-            for (int i = 0; i < InventorySize; i++)
+            for (int i = 0; i < inventorySize; i++)
             {
                 Slots.Add(new InventorySlot(i));
             }
@@ -59,7 +78,7 @@ namespace BGSTest
                 if (slot.CanStackWith(toAdd, amount))
                 {
                     slot.SetItem(toAdd, slot.quantity + amount);
-                    OnInventoryChanged.Invoke();
+                    OnInventoryChanged.Invoke(slot);
                     break;
                 }
             }
@@ -70,7 +89,7 @@ namespace BGSTest
             if (Slots[slotID].quantity >= amount)
             {
                 Slots[slotID].ChangeQuantity(-amount);
-                OnInventoryChanged.Invoke();
+                OnInventoryChanged.Invoke(Slots[slotID]);
                 return true;
             }
             return false;
@@ -83,7 +102,7 @@ namespace BGSTest
                 if (slot.CanStackWith(toRemove, -amount))
                 {
                     slot.ChangeQuantity(-amount);
-                    OnInventoryChanged.Invoke();
+                    OnInventoryChanged.Invoke(slot);
                     return true;
                 }
             }
@@ -92,7 +111,7 @@ namespace BGSTest
 
         public void TrySwapOutfit(InventorySlot slot1, InventorySlot outfitSlot)
         {
-            if (!outfitSlot.MaxQuantityIsOne)
+            if (!outfitSlot.IsOutfitSlot)
             {
                 Debug.LogWarning("Something went wrong!");
             }
@@ -100,9 +119,14 @@ namespace BGSTest
             {
                 if (!slot1.IsEmpty())
                 {
-                    // put on outfit
-                    outfitSlot.SetItem(slot1.itemSO, 1);
-                    outfitSlot.ChangeQuantity(-1);
+                    if (outfitSlot.CanStackWith(slot1.itemSO, 1))
+                    {
+                        // put on outfit
+                        outfitSlot.SetItem(slot1.itemSO, 1);
+                        slot1.ChangeQuantity(-1);
+                        OnInventoryChanged.Invoke(slot1);
+                        OnInventoryChanged.Invoke(outfitSlot);
+                    }
                 }
             }
             else
@@ -113,9 +137,14 @@ namespace BGSTest
                 }
                 else
                 {
-                    // take off outfit
-                    slot1.SetItem(slot1.itemSO, 1);
-                    outfitSlot.ChangeQuantity(-1);
+                    if (slot1.CanStackWith(outfitSlot.itemSO, 1))
+                    {
+                        // take off outfit
+                        slot1.SetItem(outfitSlot.itemSO, 1);
+                        outfitSlot.ChangeQuantity(-1);
+                        OnInventoryChanged.Invoke(slot1);
+                        OnInventoryChanged.Invoke(outfitSlot);
+                    }
                 }
             }
         }

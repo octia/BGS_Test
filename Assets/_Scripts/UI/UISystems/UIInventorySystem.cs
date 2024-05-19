@@ -90,22 +90,28 @@ namespace BGSTest
 
         public void ClickedSlot(InventorySlot _slot)
         {
+            bool swappingItems = false;
             if (_HeadOutfitSlot.IsSelected)
             {
-                _inventory.TrySwapOutfit(_slot, _inventory.BodyOutfitSlot);
+                _inventory.TrySwapOutfit(_slot, _inventory.HeadOutfitSlot);
                 _HeadOutfitSlot.IsSelected = false;
-                return;
+                _BodyOutfitSlot.IsSelected = false;
+                swappingItems = true;
             }
             if (_BodyOutfitSlot.IsSelected)
             {
-                _inventory.TrySwapOutfit(_slot, _inventory.HeadOutfitSlot);
+                _inventory.TrySwapOutfit(_slot, _inventory.BodyOutfitSlot);
+                _HeadOutfitSlot.IsSelected = false;
                 _BodyOutfitSlot.IsSelected = false;
-                return;
+                swappingItems = true;
             }
 
-            OnSlotSelected.Invoke(_slot);
             UnselectAllSlots();
             RefreshView();
+            if (!swappingItems)
+            {
+                OnSlotSelected.Invoke(_slot);
+            }
         }
 
         private void UnselectAllSlots()

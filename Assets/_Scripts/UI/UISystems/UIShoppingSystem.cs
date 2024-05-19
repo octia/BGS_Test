@@ -38,7 +38,7 @@ namespace BGSTest
                 Instantiate(_ShopSlotPrefab, _ShopSlotParent).FillData(_shopSO.SoldItems[i], this);
             }
             _shopKeep = shopkeep;
-            float newHeight = _shopSlotHeight * _shopSO.SoldItems.Count + 10f * (_shopSO.SoldItems.Count - 1);// the 10f is for padding. I'm in a hurry.
+            float newHeight = (_shopSlotHeight+10f) * _shopSO.SoldItems.Count;// the 10f is for padding.
             _ShopSlotParent.sizeDelta = new Vector2(_ShopSlotParent.sizeDelta.x, newHeight);
         }
 

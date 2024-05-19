@@ -26,9 +26,9 @@ Transform:
   m_GameObject: {fileID: 5349063274775836786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1053596590466424376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,9 +110,9 @@ Transform:
   m_GameObject: {fileID: 7884244729436166520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1053596590466424376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -389,11 +389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInventory:
-    InventorySize: 10
     Slots: []
     _goldAmount: 100
-  bodyOutfit: {fileID: 0}
-  headOutfit: {fileID: 0}
+  _bodyOutfit: {fileID: 0}
+  _headOutfit: {fileID: 0}
 --- !u!114 &545015741856038310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64ed246b4d0102d2903c4b6fd171d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3.11
+  _speed: 3.52
 --- !u!114 &6704291095692448283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +434,7 @@ MonoBehaviour:
   _bareBodyImage: {fileID: 5674746954236712887}
   _bodyOutfitImage: {fileID: 3277005246531415539}
   _headOutfitImage: {fileID: 430593964343643443}
-  _animSpeed: 6
+  _animSpeed: 12
   _walkAnimFrames: 6
 --- !u!114 &4253431321225672875
 MonoBehaviour:
@@ -452,7 +451,7 @@ MonoBehaviour:
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 1
-  _maxInteractionDistance: 2
+  _maxInteractionDistance: 1.46
 --- !u!114 &6716693078659627663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04087a9c1d83a07e3a30edc3f46991fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventorySize: 10
+  _inventorySize: 15
 --- !u!114 &7288420404370617620
 MonoBehaviour:
   m_ObjectHideFlags: 0

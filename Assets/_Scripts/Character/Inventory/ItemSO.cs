@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace BGSTest
 {
-
+    public enum OutfitTypes
+    {
+        Unknown = 0,HeadOutfit,BodyOutfit
+    }
     [CreateAssetMenu(fileName = "New Item", menuName = "Scriptables/New Item")]
     public class ItemSO : ScriptableObject
     {
@@ -13,10 +16,11 @@ namespace BGSTest
         public string ItemID;
         public string ItemName = "New Item";
         public int MaxStackSize = 1;
-        public Sprite icon;
+        public Sprite icon => OutfitAnimation.GetIdleFrame(Vector2Int.down);
         public int BuyPrice = 10;
         public int SellPrice = 5;
-        public OutfitSO OutfitSO;        
+        public OutfitSO OutfitAnimation;        
+        public OutfitTypes OutfitType;
 
     }
 }

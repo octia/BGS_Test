@@ -11,60 +11,75 @@ namespace BGSTest
 
         public string outfitName;
 
+
         public int _walkAnimFrames = 6;
 
         public int _indexIdleFrame = 6;
 
-        public List<Sprite> _spritesWalkDown;
+        [SerializeField]
+        private Vector2Int _walkUpIndexRange = new Vector2Int(40, 45);
+        [SerializeField]
+        private Vector2Int _walkDownIndexRange = new Vector2Int(32,37);
+        [SerializeField]
+        private Vector2Int _walkRightIndexRange = new Vector2Int(48, 53);
+        [SerializeField]
+        private Vector2Int _walkLeftIndexRange = new Vector2Int(56,61);
+        [SerializeField]
+        private int _idleDownIndex = 0;
+        [SerializeField]
+        private int _idleUpIndex = 8;
+        [SerializeField]
+        private int _idleRightIndex = 16;
+        [SerializeField]
+        private int _idleLeftIndex = 24;
 
-        public List<Sprite> _spritesWalkUp;
-
-        public List<Sprite> _spritesWalkRight;
-
-        public List<Sprite> _spritesWalkLeft;
+        [SerializeField]
+        public List<Sprite> _spriteList;
 
         public Sprite GetIdleFrame(Vector2Int dir)
         {
             if (dir == Vector2Int.up)
             {
-                return _spritesWalkUp[_indexIdleFrame];
+                return _spriteList[_idleUpIndex];
             }
             else if (dir == Vector2Int.right)
             {
-                return _spritesWalkRight[_indexIdleFrame];
+                return _spriteList[_idleRightIndex];
             }
             else if (dir == Vector2Int.left)
             {
-                return _spritesWalkLeft[_indexIdleFrame];
+                return _spriteList[_idleLeftIndex];
             }
             else
             {
-                return _spritesWalkDown[_indexIdleFrame]; // this is the default if invalid dir passed
+                return _spriteList[_idleDownIndex]; // this is the default if invalid dir passed
             }
         }
 
         public Sprite GetWalkFrame(Vector2Int dir, int frameNum)
         {
-            if (frameNum < 0 || frameNum >= _indexIdleFrame)
-            {
-                return null;
-            }
+            Vector2Int selectedFrameSet;
             if (dir == Vector2Int.up)
             {
-                return _spritesWalkUp[frameNum];
+                selectedFrameSet = _walkUpIndexRange;
             }
             else if (dir == Vector2Int.right)
             {
-                return _spritesWalkRight[frameNum];
+                selectedFrameSet = _walkRightIndexRange;
             }
             else if (dir == Vector2Int.left)
             {
-                return _spritesWalkLeft[frameNum];
+                selectedFrameSet = _walkLeftIndexRange;
             }
             else
             {
-                return _spritesWalkDown[frameNum]; // this is the default if invalid dir passed
+                selectedFrameSet = _walkDownIndexRange; // this is the default if invalid dir passed
             }
+            if (frameNum < 0 || frameNum > selectedFrameSet.y - selectedFrameSet.x)
+            {
+                return _spriteList[_idleDownIndex]; // this is the default if invalid data is passed;
+            }
+            return _spriteList[selectedFrameSet.x + frameNum];
         }
 
     }

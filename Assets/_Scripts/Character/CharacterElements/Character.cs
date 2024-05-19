@@ -44,6 +44,10 @@ namespace BGSTest
 
         public void SetCanMove(bool canMove)
         {
+            if (!canMove && _isMoving)
+            {
+                OnMovementChange.Invoke(false);
+            }
             _canMove = canMove;
         }
 

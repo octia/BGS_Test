@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemID: 5f9061b0-7ce4-4574-8153-33a05afad65c
   ItemName: Body 1
-  MaxStackSize: 3
+  MaxStackSize: 1
   icon: {fileID: 299705044, guid: b1ff500c6828e67058a19152a9b9bfcf, type: 3}
   BuyPrice: 10
   SellPrice: 5
+  OutfitAnimation: {fileID: 11400000, guid: 84002729e357a0d2fa11b5f601f3a71b, type: 2}
+  OutfitType: 2

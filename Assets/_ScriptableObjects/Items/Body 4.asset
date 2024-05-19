@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d26bd09d03d3acabdbe229f20222119b, type: 3}
-  m_Name: Hair 2
+  m_Name: Body 4
   m_EditorClassIdentifier: 
   ItemID: 5f9061b0-7ce4-4574-8153-33a05afad65c
-  ItemName: Hair 2
-  MaxStackSize: 3
-  icon: {fileID: -2045109853, guid: 5e38484f11ac3a093ab83de0380045b8, type: 3}
-  BuyPrice: 20
-  SellPrice: 15
-  OutfitAnimation: {fileID: 11400000, guid: b876d467b1f321c90a331583e93e55f7, type: 2}
-  OutfitType: 1
+  ItemName: Body 4
+  MaxStackSize: 1
+  icon: {fileID: 1933254404, guid: 93e59e3107490e06b9562cd82f815cda, type: 3}
+  BuyPrice: 10
+  SellPrice: 5
+  OutfitAnimation: {fileID: 11400000, guid: 33016a3fd9dd75441a730f1b769f1b4a, type: 2}
+  OutfitType: 2

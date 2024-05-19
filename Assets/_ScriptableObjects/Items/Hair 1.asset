@@ -16,5 +16,7 @@ MonoBehaviour:
   ItemName: Hair 1
   MaxStackSize: 3
   icon: {fileID: -1041413780, guid: 5e38484f11ac3a093ab83de0380045b8, type: 3}
-  BuyPrice: 10
-  SellPrice: 5
+  BuyPrice: 20
+  SellPrice: 15
+  OutfitAnimation: {fileID: 11400000, guid: d056bacabe0faefb6b877a01908eaa0f, type: 2}
+  OutfitType: 1

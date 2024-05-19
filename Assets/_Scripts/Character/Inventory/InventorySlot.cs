@@ -21,19 +21,19 @@ namespace BGSTest
             }
         }
 
-        public int slotID;
+        public int slotID = 0;
         public InventorySlot(int id, bool isOutfitSlot = false)
         {
             slotID = id;
-            MaxQuantityIsOne = isOutfitSlot;
+            IsOutfitSlot = isOutfitSlot;
         }
 
         [SerializeField]
-        private int _quantity = 0;
+        protected int _quantity = 0;
 
-        public int maxQuantity => MaxQuantityIsOne ? 1 : itemSO ? itemSO.MaxStackSize : 0;
+        public int maxQuantity => IsOutfitSlot ? 1 : itemSO ? itemSO.MaxStackSize : 0;
 
-        public bool MaxQuantityIsOne = false;
+        public bool IsOutfitSlot = false;
 
         public void SetItem(ItemSO newItem, int newQuantity)
         {
@@ -48,7 +48,7 @@ namespace BGSTest
             }
         }
 
-        public bool CanStackWith(ItemSO incomingItem, int incomingQuantity)
+        public virtual bool CanStackWith(ItemSO incomingItem, int incomingQuantity)
         {
             if (incomingItem == null)
             {

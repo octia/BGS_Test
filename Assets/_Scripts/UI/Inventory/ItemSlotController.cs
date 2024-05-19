@@ -8,7 +8,19 @@ namespace BGSTest
 {
     public class ItemSlotController : MonoBehaviour
     {
-        public bool IsSelected = false;
+        public bool IsSelected
+        {
+            get { return _selected; }
+            set
+            {
+                _selected = value;
+                if (_outline)
+                {
+                    _outline.enabled = _selected;
+                }
+            }
+        }
+        private bool _selected = false;
         public bool IsSpecialSlot = false;
 
         [SerializeField]
@@ -17,6 +29,8 @@ namespace BGSTest
         [SerializeField]
         private TMP_Text _amount;
 
+        [SerializeField]
+        private Outline _outline;
         private UIInventorySystem _invSystem;
 
         private InventorySlot _slot;

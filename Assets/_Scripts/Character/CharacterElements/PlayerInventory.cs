@@ -20,7 +20,7 @@ namespace BGSTest
         public virtual void Start()
         {
             UISystemManager.Instance?.RegisterForUIEvent<UIInventorySystem>(OnInventoryOpened);
-            playerController.PlayerInventory.Initialize();
+            playerController.PlayerInventory.Initialize(_inventorySize);
             playerController.PlayerInventory.OnInventoryChanged += OnInventoryChanged;
         }
 
@@ -35,7 +35,7 @@ namespace BGSTest
         }
 
 
-        private void OnInventoryChanged()
+        private void OnInventoryChanged(InventorySlot slot)
         {
             if (_isInventoryOpen)
             {

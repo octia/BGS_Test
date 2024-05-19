@@ -39,7 +39,7 @@ namespace BGSTest
 
         private bool CheckInteractionAvaliability()
         {
-            return false;
+            return TryGetInteractable(out _);
         }
 
         private bool TryGetInteractable(out IInteractable interactable)
@@ -68,7 +68,7 @@ namespace BGSTest
         {
             if (_interactionPossible)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E)) // This should really be moved to the new input system.
                 {
                     AttemptInteraction();
                 }
@@ -77,7 +77,7 @@ namespace BGSTest
 
         private void FixedUpdate()
         {
-            bool interactableFound = TryGetInteractable(out _);
+            bool interactableFound = CheckInteractionAvaliability();
             if (interactableFound != _interactionPossible)
             {
                 _interactionPossible = interactableFound;

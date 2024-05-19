@@ -16,3 +16,5 @@ MonoBehaviour:
   SoldItems:
   - {fileID: 11400000, guid: 739c50feb001fba9096d9a362777c9f4, type: 2}
   - {fileID: 11400000, guid: 35ade5d121eae37bcbbdfdb6f5f2f927, type: 2}
+  - {fileID: 11400000, guid: 69e6f15ddf0858963bdfd24deaefe601, type: 2}
+  - {fileID: 11400000, guid: 81419322ae609f97db02e578793003f4, type: 2}

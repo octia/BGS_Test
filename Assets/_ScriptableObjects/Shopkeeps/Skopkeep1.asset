@@ -15,3 +15,6 @@ MonoBehaviour:
   ShopkeepName: 
   SoldItems:
   - {fileID: 11400000, guid: c65b34b8923ffd8ea9dda2079e794bee, type: 2}
+  - {fileID: 11400000, guid: 483189c4149832ba986fb5af22448376, type: 2}
+  - {fileID: 11400000, guid: 7e8a6986b82e9d44bb6ada31e32a61dd, type: 2}
+  - {fileID: 11400000, guid: 44286eec9ac8976d3958a8a135385626, type: 2}
