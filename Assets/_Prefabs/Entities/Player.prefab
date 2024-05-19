@@ -237,6 +237,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6927789029299407822, guid: b8b89749ef388340ea1fca00b7cfecf6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4253431321225672875}
+    - targetCorrespondingSourceObject: {fileID: 6927789029299407822, guid: b8b89749ef388340ea1fca00b7cfecf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6716693078659627663}
+    - targetCorrespondingSourceObject: {fileID: 6927789029299407822, guid: b8b89749ef388340ea1fca00b7cfecf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7288420404370617620}
   m_SourcePrefab: {fileID: 100100000, guid: b8b89749ef388340ea1fca00b7cfecf6, type: 3}
 --- !u!1 &773415831968277679 stripped
 GameObject:
@@ -282,6 +288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394213ca9b70b5fe2a5b97db8b3fb1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInventory:
+    MaxInventorySize: 10
+    Slots: []
+    goldAmount: 0
+  outfitSlot: {fileID: 0}
+  hairSlot: {fileID: 0}
+  hatSlot: {fileID: 0}
 --- !u!114 &545015741856038310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +348,30 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _maxInteractionDistance: 2
+--- !u!114 &6716693078659627663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773415831968277679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04087a9c1d83a07e3a30edc3f46991fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7288420404370617620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773415831968277679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd90e8f516c9c8ec86360cdcde0f800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1505314583951507062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9114222762888024343, guid: b8b89749ef388340ea1fca00b7cfecf6, type: 3}

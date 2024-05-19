@@ -6,8 +6,11 @@ namespace BGSTest
 {
 
     [CreateAssetMenu(fileName = "New Item", menuName = "Scriptables/New Item")]
-    public class ItemSO : BaseScriptableObject
+    public class ItemSO : ScriptableObject
     {
+
+        [ScriptableObjectId]
+        public string ItemID;
         public string ItemName = "New Item";
         public int MaxStackSize = 1;
         public Sprite icon;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,9 @@ public abstract class UISystemBase : MonoBehaviour
             return;
         }
         gameObject.SetActive(true);
+        IsOpen = true;
         OnOpen();
+        OnOpenClose.Invoke(this, true);
     }
     public virtual void Close()
     {
@@ -30,10 +33,18 @@ public abstract class UISystemBase : MonoBehaviour
             return;
         }
         gameObject.SetActive(false);
+        IsOpen = false;
         OnClose();
+        OnOpenClose.Invoke(this, false);
     }
     
     public virtual void OnOpen(){}
     public virtual void OnClose(){}
+
+    /// <summary>
+    /// Fires when system is opened (true) or closed (false)
+    /// Fires after OnOpen and OnClose 
+    /// </summary>
+    public event Action<UISystemBase, bool> OnOpenClose = delegate{};
 
 }

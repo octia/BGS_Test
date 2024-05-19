@@ -30,22 +30,16 @@ namespace BGSTest
 
         private void AttemptInteraction()
         {
-            
+            if (TryGetInteractable (out var interactable))
+            {
+                interactable.Interact();
+            }
+
         }
 
         private bool CheckInteractionAvaliability()
         {
             return false;
-        }
-
-        private void OnDrawGizmos()
-        {
-            if (Application.isPlaying)
-            {
-                Gizmos.color = Color.red;
-                Debug.Log("heading: " + _currentHeading);
-                Gizmos.DrawRay(characterController.transform.position, _currentHeading);
-            }
         }
 
         private bool TryGetInteractable(out IInteractable interactable)
@@ -86,7 +80,20 @@ namespace BGSTest
             bool interactableFound = TryGetInteractable(out _);
             if (interactableFound != _interactionPossible)
             {
+                _interactionPossible = interactableFound;
+                ShowInteractionPossibleUI(interactableFound);
+            }
+        }
 
+        private void ShowInteractionPossibleUI(bool interactableFound)
+        {
+            if (interactableFound)
+            {
+                UISystemManager.Instance?.OpenUISystem<UIInteractionSystem>();
+            }
+            else
+            {
+                UISystemManager.Instance?.CloseUISystem<UIInteractionSystem>();
             }
         }
     }

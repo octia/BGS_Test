@@ -21,9 +21,4 @@ public class ScriptableObjectIdDrawer : PropertyDrawer {
 }
 #endif
 
-    public class BaseScriptableObject : ScriptableObject
-    {
-        [ScriptableObjectId]
-        public string Id;
-    }
 }

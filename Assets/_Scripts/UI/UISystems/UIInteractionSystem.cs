@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIInteractionSystem : UISystemBase
+namespace BGSTest
 {
+    public class UIInteractionSystem : UISystemBase
+    {
+
+    }
 
 }

@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace BGSTest
 {
-    public class UIDialogueSystem : UISystemBase
+    public class OutfitSO : ScriptableObject
     {
-
+        
     }
-
 }

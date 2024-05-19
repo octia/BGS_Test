@@ -22,16 +22,18 @@ namespace BGSTest
             {
                 Destroy(gameObject);
             }
+            RegisterSystems();
         }
         #endregion
 
         /// <summary>
         /// Fired when gameplay is paused (true) or resumed (false)
         /// </summary>
-        public event Action<bool> OnGameplayPaused; // should be in a separate system perhaps, but I'm running out of time for this project.
+        public event Action<bool> OnGameplayPaused = delegate { }; // should be in a separate system perhaps, but I'm running out of time for this project.
 
-        private Dictionary<Type, UISystemBase> _uiSystems;
-        private void Start()
+
+        private Dictionary<Type, UISystemBase> _uiSystems = new();
+        private void RegisterSystems()
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -55,6 +57,8 @@ namespace BGSTest
             {
                 foreach (var system in _uiSystems.Values)
                 {
+                    // close all exclusive systems that are open right now
+                    // close all other systems if exclusive system is being opened
                     if (result.IsExclusive || system.IsExclusive)
                     {
                         system.Close();
@@ -64,6 +68,30 @@ namespace BGSTest
                 return (T)result;
             }
             return null;
+        }
+
+        public void CloseUISystem<T>() where T : UISystemBase
+        {
+            if (_uiSystems.TryGetValue(typeof(T), out var result))
+            {
+                result.Close();
+            }
+        }
+
+        public void RegisterForUIEvent<T>(Action<UISystemBase, bool> toRegister) where T : UISystemBase
+        {
+            if (_uiSystems.TryGetValue(typeof(T), out var result))
+            {
+                result.OnOpenClose += toRegister;
+            }
+        }
+        
+        public void UnregisterForUIEvent<T>(Action<UISystemBase, bool> toDeregister) where T : UISystemBase
+        {
+            if (_uiSystems.TryGetValue(typeof(T), out var result))
+            {
+                result.OnOpenClose -= toDeregister;
+            }
         }
     }
 }

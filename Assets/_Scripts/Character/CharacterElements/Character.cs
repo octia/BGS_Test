@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BGSTest
 {
+    /// <summary>
+    /// Generic character class, handling movement and rotation
+    /// </summary>
     public class Character : MonoBehaviour
     {
 
@@ -37,6 +40,11 @@ namespace BGSTest
             //OnHeadingChange += (Vector2Int heading) => Debug.Log("New heading = " + heading);
             //OnDirectionChange += (Vector2 dir) => Debug.Log("New dir = " + dir);
             //OnMovementChange += (bool change) => Debug.Log("Moving = " + change);
+        }
+
+        public void SetCanMove(bool canMove)
+        {
+            _canMove = canMove;
         }
 
         /// <summary>

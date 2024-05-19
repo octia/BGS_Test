@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace BGSTest
 {
-    public class CharacterAnimationController : CharacterControllerElement
+    public class PlayerAnimationController : CharacterControllerElement
     {
-
+        
         void Start()
         {
             characterController.OnHeadingChange += OnHeadingChange;

@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIInventorySystem : UISystemBase
+namespace BGSTest
 {
+    public class UIInventorySystem : UISystemBase
+    {
+        public void FillData(Inventory inventory)
+        {
 
+        }
+    }
 }
