@@ -6,22 +6,21 @@ namespace BGSTest
 {
     public class Shopkeeper : MonoBehaviour, IInteractable
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
+        [SerializeField]
+        private ShopkeepSO _shopkeepSO;
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        private bool _isOpen;
         public void Interact()
         {
-            UIShoppingSystem shopSystem = UISystemManager.Instance.OpenUISystem<UIShoppingSystem>();
-            
+            if (!_isOpen)
+            {
+                UIShoppingSystem shopSystem = UISystemManager.Instance?.OpenUISystem<UIShoppingSystem>();
+                if (shopSystem)
+                {
+                    shopSystem.SetupItems(_shopkeepSO);
+                }
+            }
         }
     }
 }

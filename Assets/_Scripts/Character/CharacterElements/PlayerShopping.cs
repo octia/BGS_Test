@@ -9,7 +9,7 @@ namespace BGSTest
     {
         public void Start()
         {
-            UISystemManager.Instance.RegisterForUIEvent<UIShoppingSystem>(OnShopOpened);
+            UISystemManager.Instance?.RegisterForUIEvent<UIShoppingSystem>(OnShopOpened);
         }
 
         public void OnShopOpened(UISystemBase uiSystem, bool wasOpened)
@@ -31,7 +31,7 @@ namespace BGSTest
         {
             Inventory inv = playerController.PlayerInventory;
             if (inv.IsAddingItemPossible(item))
-            {                
+            {            
                 if (inv.goldAmount > price)
                 {
                     inv.goldAmount -= price;

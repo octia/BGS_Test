@@ -55,6 +55,10 @@ namespace BGSTest
         {
             if (_uiSystems.TryGetValue(typeof(T), out var result))
             {
+                if (result.IsOpen)
+                {
+                    return null;
+                }
                 foreach (var system in _uiSystems.Values)
                 {
                     // close all exclusive systems that are open right now
@@ -74,6 +78,10 @@ namespace BGSTest
         {
             if (_uiSystems.TryGetValue(typeof(T), out var result))
             {
+                if (!result.IsOpen)
+                {
+                    return;
+                }
                 result.Close();
             }
         }

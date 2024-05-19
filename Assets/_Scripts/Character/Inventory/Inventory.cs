@@ -8,10 +8,19 @@ namespace BGSTest
     public class Inventory
     {
         public Action OnInventoryChanged;
-        public int MaxInventorySize = 10;
+        public int InventorySize = 10;
         public List<InventorySlot> Slots;
     
         public int goldAmount = 0;
+
+        public void Initialize()
+        {
+            Slots = new List<InventorySlot>();
+            for (int i = 0; i < InventorySize; i++)
+            {
+                Slots.Add(new InventorySlot());
+            }
+        }
 
         public bool IsAddingItemPossible(ItemSO toAdd)
         {
@@ -29,9 +38,10 @@ namespace BGSTest
         {
             foreach (InventorySlot slot in Slots)
             {
-                if (slot.CanStackWith(toAdd, 1))
+                if (slot.CanStackWith(toAdd, amount))
                 {
-                    slot.SetQuantity(slot.quantity+amount);
+                    slot.SetItem(toAdd, slot.quantity+amount);
+                    break;
                 }
             }
         }

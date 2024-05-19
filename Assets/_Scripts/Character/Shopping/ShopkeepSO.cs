@@ -9,6 +9,6 @@ namespace BGSTest
     public class ShopkeepSO : ScriptableObject
     {
         public string ShopkeepName;
-        public List<ItemSO> soldItems;
+        public List<ItemSO> SoldItems;
     }
 }

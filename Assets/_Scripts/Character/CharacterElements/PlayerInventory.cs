@@ -6,10 +6,14 @@ namespace BGSTest
 {
     public class PlayerInventory : PlayerControllerElement
     {
+        [SerializeField]
+        private int _inventorySize = 10;
+
 
         public virtual void Start()
         {
             UISystemManager.Instance?.RegisterForUIEvent<UIInventorySystem>(OnInventoryOpened);
+            playerController.PlayerInventory.Initialize();
         }
 
         public void OnInventoryOpened(UISystemBase uiSystem, bool wasOpened)
